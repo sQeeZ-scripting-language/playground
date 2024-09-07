@@ -1,3 +1,14 @@
 <div class="toolbar-container">
-
+    <img src="logo.jpg">
+    <div class="control-area">
+        <button mat-icon-button (click)="toggleTheme()">
+            <mat-icon> {{ currentTheme === 'light' ? 'light_mode' : 'dark_mode' }} </mat-icon>
+        </button>
+        <button mat-icon-button>
+            <mat-icon>help</mat-icon>
+        </button>
+        <button mat-icon-button>
+            <mat-icon>settings</mat-icon>
+        </button>
+    </div>
 </div>

@@ -1,8 +1,18 @@
 .toolbar-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     height: 7.5svh;
     width: 100%;
     border-bottom: 0.5px solid white;
+}
+
+img {
+    height: 90%;
+    margin-left: 1rem;
+}
+
+.control-area {
+    margin-right: 1rem;
+    color: white;
 }

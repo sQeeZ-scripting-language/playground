@@ -7,3 +7,38 @@
     width: 42vw;
     border-right: 0.5px solid white;
 }
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    height: 5svh;
+    width: 100%;
+}
+
+.file {
+    height: 100%;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+p {
+    margin: 0;
+}
+
+
+.control-area {
+    flex-grow: 1;
+    height: 100%;
+    background-color: #181818;
+    border-bottom: 0.5px solid white;
+    border-left: 0.5px solid white;
+}

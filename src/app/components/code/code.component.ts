@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-code',
   standalone: true,
-  imports: [MatIconModule],
+  imports: [MatButtonModule, MatIconModule],
   templateUrl: './code.component.html',
   styleUrl: './code.component.scss'
 })

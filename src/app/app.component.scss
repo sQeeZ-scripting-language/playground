@@ -9,3 +9,9 @@
     justify-content: flex-start;
     @extend %full-size;
 }
+
+.core {
+    display: flex;
+    justify-content: flex-start;
+    background-color: #222222;
+}

@@ -4,7 +4,7 @@
     justify-content: flex-start;
     align-items: center;
     height: calc(100vh - 7.5svh - 0.5px);
-    width: 42vw;
+    width: 50vw;
     border-right: 0.5px solid white;
 }
 
@@ -25,7 +25,7 @@
     box-sizing: border-box;
 }
 
-.row {
+.header {
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -41,7 +41,55 @@ p {
     align-items: center;
     flex-grow: 1;
     height: 100%;
-    background-color: #181818;
     border-bottom: 0.5px solid white;
     border-left: 0.5px solid white;
+    background-color: #181818;
 }
+
+.editor-container {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+    width: 100%;
+    line-height: 1.5;
+    border: 0.5px solid white;
+    font-family: 'Courier New', monospace;
+
+    textarea {
+        background-color: #222222;
+        color: white;
+    }
+  
+    .line-numbers {
+        width: 50px;
+        overflow: hidden;
+        white-space: pre;
+        user-select: none;
+        line-height: inherit;
+        text-align: right;
+        font-size: large;
+        padding: 10px;
+        border-right: 0.5px solid white;
+        background-color: #444444;
+        color: white;
+    }
+  
+    .editor {
+        box-sizing: border-box;
+        overflow-x: auto;
+        overflow-y: auto;
+        line-height: inherit;
+        white-space: nowrap;
+        font-family: inherit;
+        border: none;
+        resize: none;
+        outline: none;
+        font-size: large;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 10px 10px;
+    }
+}
+ 

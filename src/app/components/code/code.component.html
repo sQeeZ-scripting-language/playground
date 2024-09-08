@@ -1,7 +1,7 @@
 <div class="code-container">
     <div class="header">
         <div class="file">
-            <div class="row">
+            <div class="header">
                 <mat-icon>code</mat-icon>
                 <p>main.sqz</p>
             </div>
@@ -24,4 +24,15 @@
             </button>
         </div>
     </div>
+    <div class="editor-container">
+        <div class="line-numbers" [innerHTML]="lineNumbers"></div>
+        <textarea 
+            class="editor" 
+            [(ngModel)]="editorContent" 
+            (input)="updateLineNumbers($event)" 
+            (keyup.enter)="syncScroll($event)" 
+            (scroll)="syncScroll($event)" 
+            spellcheck="false"
+        ></textarea>
+    </div>      
 </div>

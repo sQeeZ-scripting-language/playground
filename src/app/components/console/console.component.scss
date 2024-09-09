@@ -6,3 +6,25 @@
     height: calc(100vh - 7.5svh - 0.5px);
     width: 32vw;
 }
+
+.header {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 5svh;
+    width: 100%;
+    gap: 0.25rem;
+    padding-left: 2.5svh;
+    color: white;
+}
+
+.terminal {
+    flex: 1;
+    width: 90%;
+    line-height: 1.5;
+    padding: 5%;
+    background-color: #201c1c;
+    border: 0.5px solid white;
+    font-family: 'Cascadia Code', 'Courier New', Courier, monospace;
+    color: white;
+}

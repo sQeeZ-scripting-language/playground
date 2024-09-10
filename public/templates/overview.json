@@ -6,40 +6,40 @@
             "code": "templates/basic/hello-world.sqz"
         }, {
             "name": "Conditions",
-            "path": "templates/basic/conditions.sqz"
+            "code": "templates/basic/conditions.sqz"
         }, {
             "name": "Loops",
-            "path": "templates/basic/conditions.sqz"
+            "code": "templates/basic/conditions.sqz"
         }, {
             "name": "Functions",
-            "path": "templates/basic/functions.sqz"
+            "code": "templates/basic/functions.sqz"
         }, {
             "name": "Operators",
-            "path": "templates/basic/operators.sqz"
+            "code": "templates/basic/operators.sqz"
         }, {
             "name": "Data Structures",
-            "path": "templates/basic/data-structures.sqz"
+            "code": "templates/basic/data-structures.sqz"
         }]
     }, {
         "name": "Algorithms",
         "templates": [{
             "name": "Sorting",
-            "path": "templates/algorithms/sorting.sqz"
+            "code": "templates/algorithms/sorting.sqz"
         }, {
             "name": "Searching",
-            "path": "templates/algorithms/searching.sqz"
+            "code": "templates/algorithms/searching.sqz"
         }, {
             "name": "Fibonacci",
-            "path": "templates/algorithms/fibonacci.sqz"
+            "code": "templates/algorithms/fibonacci.sqz"
         }, {
             "name": "Prime Numbers",
-            "path": "templates/algorithms/prime-numbers.sqz"
+            "code": "templates/algorithms/prime-numbers.sqz"
         }]
     }, {
         "name": "Short Notation",
         "templates": [{
             "name": "Arrays",
-            "path": "templates/short-notation/arrays.sqz"
+            "code": "templates/short-notation/arrays.sqz"
         }]
     }]
 }

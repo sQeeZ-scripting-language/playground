@@ -26,14 +26,8 @@
             "name": "Sorting",
             "code": "../../../templates/algorithms/sorting.sqz"
         }, {
-            "name": "Searching",
-            "code": "../../../templates/algorithms/searching.sqz"
-        }, {
             "name": "Fibonacci",
             "code": "../../../templates/algorithms/fibonacci.sqz"
-        }, {
-            "name": "Prime Numbers",
-            "code": "../../../templates/algorithms/prime-numbers.sqz"
         }]
     }, {
         "name": "Short Notation",

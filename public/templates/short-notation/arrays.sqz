@@ -1,0 +1,2 @@
+// Short notation of array functionalities in sQeeZ
+@1 2 3 4 5 |> map(*2) |> filter(>10)

@@ -28,7 +28,7 @@
         <div class="line-numbers" [innerHTML]="lineNumbers"></div>
         <textarea 
             class="editor" 
-            [(ngModel)]="editorContent" 
+            [(ngModel)]="code"
             (input)="updateLineNumbers($event)" 
             (keyup.enter)="syncScroll($event)" 
             (scroll)="syncScroll($event)" 

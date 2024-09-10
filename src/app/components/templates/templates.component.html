@@ -11,7 +11,7 @@
                 </mat-expansion-panel-header>
                 <div class="templates">
                     @for (template of category.templates; track template) {
-                        <button mat-stroked-button>{{ template.name }}</button>
+                        <button mat-stroked-button (click)="showCode(template)">{{ template.name }}</button>
                     }
                 </div>
             </mat-expansion-panel>

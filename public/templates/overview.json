@@ -3,7 +3,7 @@
         "name": "Basic",
         "templates": [{
             "name": "Hello World!",
-            "code": "templates/basic/hello-world.sqz"
+            "code": "../../../templates/basic/hello-world.sqz"
         }, {
             "name": "Conditions",
             "code": "templates/basic/conditions.sqz"

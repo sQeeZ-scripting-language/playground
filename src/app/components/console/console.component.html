@@ -1,7 +1,12 @@
 <div class="console-container">
     <div class="header">
-        <mat-icon>terminal</mat-icon>
-        Terminal
+        <div>
+            <mat-icon>terminal</mat-icon>
+            Terminal
+        </div>
+        <button mat-icon-button (click)="clearConsole()">
+            <mat-icon>clear</mat-icon>
+        </button>
     </div>
-    <div class="terminal"></div>
+    <div class="terminal" [innerHTML]="output"></div>
 </div>

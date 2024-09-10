@@ -9,13 +9,19 @@
 
 .header {
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     align-items: center;
     height: 5svh;
-    width: 100%;
-    gap: 0.25rem;
-    padding-left: 2.5svh;
+    width: calc(100% - 1em);
+    padding-left: 1em;
     color: white;
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
+    }
 }
 
 .terminal {

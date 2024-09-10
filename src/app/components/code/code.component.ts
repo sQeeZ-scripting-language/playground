@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { SyncService } from '../../services/sync.service';
 import { SnackbarService } from '../../services/snackbar.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-code',
@@ -12,9 +13,10 @@ import { SnackbarService } from '../../services/snackbar.service';
   templateUrl: './code.component.html',
   styleUrl: './code.component.scss'
 })
-export class CodeComponent implements OnInit {
-  code: string = '';
+export class CodeComponent implements OnInit, OnDestroy {
   lineNumbers: string = '1';
+  code: string = '';
+  codeSubscription: Subscription = new Subscription();
 
   constructor(
     private syncService: SyncService,
@@ -22,10 +24,14 @@ export class CodeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.syncService.getCode().subscribe(code => {
+    this.codeSubscription = this.syncService.getCode().subscribe(code => {
       this.code = code;
       this.updateLineNumbers();
     });
+  }
+
+  ngOnDestroy(): void {
+    this.codeSubscription?.unsubscribe();
   }
 
   updateLineNumbers(event?: Event) {

@@ -6,6 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class SyncService {
   private code = new BehaviorSubject('// This is a simple "Hello World" program in sQeeZ\nlog("Hello, World!");\n');
+  private output = new BehaviorSubject('');
 
   constructor() { }
 
@@ -13,7 +14,15 @@ export class SyncService {
     this.code.next(code);
   }
 
+  public setOutput(output: string) {
+    this.output.next(output.replace(/\n/g, '<br>'));
+  }
+
   public getCode(): Observable<string> {
     return this.code.asObservable();
+  }
+
+  public getOutput(): Observable<string> {
+    return this.output.asObservable();
   }
 }

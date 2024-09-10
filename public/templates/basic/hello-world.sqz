@@ -1,1 +1,2 @@
-log("Hello World!");
+// This is a simple "Hello World" program in sQeeZ
+log("Hello, World!");

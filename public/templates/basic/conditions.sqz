@@ -1,0 +1,10 @@
+// This is an example of a conditional statement in sQeeZ
+var x = 10;
+
+if (x > 20) {
+  log("x is greater than 20");
+} elif (x > 15) {
+  log("x is greater than 15 but less than or equal to 20");
+} else {
+  log("x is 15 or less");
+}

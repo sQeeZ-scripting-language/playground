@@ -1,3 +1,20 @@
 <div class="templates-container">
-    
+    <mat-accordion>
+        @for (category of categories; track category; let i = $index) {
+            <mat-expansion-panel
+                [expanded]="i === 0"
+                (opened)="panelOpenState.set(true)" 
+                (closed)="panelOpenState.set(false)"
+            >
+                <mat-expansion-panel-header>
+                    <mat-panel-title> {{ category.name }} </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="templates">
+                    @for (template of category.templates; track template) {
+                        <button mat-stroked-button>{{ template.name }}</button>
+                    }
+                </div>
+            </mat-expansion-panel>
+        }
+    </mat-accordion>
 </div>

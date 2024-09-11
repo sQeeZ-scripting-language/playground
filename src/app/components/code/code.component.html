@@ -29,7 +29,8 @@
         <textarea 
             class="editor" 
             [(ngModel)]="code"
-            (input)="updateLineNumbers($event)" 
+            (input)="updateLineNumbers($event)"
+            (keydown)="handleTab($event)" 
             (keyup.enter)="syncScroll($event)" 
             (scroll)="syncScroll($event)" 
             spellcheck="false"

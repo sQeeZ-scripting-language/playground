@@ -16,7 +16,9 @@ import { Subscription } from 'rxjs';
 export class CodeComponent implements OnInit, OnDestroy {
   lineNumbers: string = '1';
   code: string = '';
+  tabSize: number = 2;
   codeSubscription: Subscription = new Subscription();
+  tabSizeSubscription: Subscription = new Subscription();
 
   constructor(
     private syncService: SyncService,
@@ -28,10 +30,12 @@ export class CodeComponent implements OnInit, OnDestroy {
       this.code = code;
       this.updateLineNumbers();
     });
+    this.tabSizeSubscription = this.syncService.getTabSize().subscribe(tabSize => this.tabSize = tabSize);
   }
 
   ngOnDestroy(): void {
     this.codeSubscription?.unsubscribe();
+    this.tabSizeSubscription?.unsubscribe();
   }
 
   updateLineNumbers(event?: Event) {
@@ -44,6 +48,15 @@ export class CodeComponent implements OnInit, OnDestroy {
     const textarea = event.target as HTMLTextAreaElement;
     const lineNumbers = document.querySelector('.line-numbers') as HTMLElement;
     if (lineNumbers) lineNumbers.scrollTop = textarea.scrollTop;
+  }
+
+  handleTab(event: KeyboardEvent): void {
+    const textarea = event.target as HTMLTextAreaElement;
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      textarea.value = textarea.value.substring(0, textarea.selectionStart) + ' '.repeat(this.tabSize) + textarea.value.substring(textarea.selectionEnd);
+      textarea.selectionStart = textarea.selectionEnd = textarea.selectionStart + 1;
+    }
   }
 
   runCode() {

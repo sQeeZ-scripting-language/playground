@@ -5,7 +5,6 @@
     align-items: center;
     height: calc(100vh - 7.5svh - 0.5px);
     width: 50vw;
-    border-right: 0.5px solid white;
 }
 
 .header {
@@ -21,7 +20,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: white;
     box-sizing: border-box;
 }
 
@@ -41,9 +39,7 @@ p {
     align-items: center;
     flex-grow: 1;
     height: 100%;
-    border: 0.5px solid white;
     border-right: 0;
-    background-color: #181818;
 }
 
 .editor-container {
@@ -53,13 +49,7 @@ p {
     flex: 1;
     width: 100%;
     line-height: 1.5;
-    border: 0.5px solid white;
     font-family: 'Courier New', monospace;
-
-    textarea {
-        background-color: #222222;
-        color: white;
-    }
   
     .line-numbers {
         width: 50px;
@@ -70,9 +60,6 @@ p {
         text-align: right;
         font-size: large;
         padding: 10px;
-        border-right: 0.5px solid white;
-        background-color: #444444;
-        color: white;
     }
   
     .editor {
@@ -93,3 +80,67 @@ p {
     }
 }
  
+
+:host-context(.dark-theme) {
+    .code-container {
+        border-right: 0.5px solid #e6e6e6;
+    }
+
+    .file {
+        color: white;
+    }
+
+    .control-area {
+        border: 0.5px solid #e6e6e6;
+        background-color: #181818;
+    }
+
+    .editor-container {
+        border: 0.5px solid #e6e6e6;
+
+        textarea {
+            background-color: #222222;
+            color: white;
+        }
+    }
+
+    .line-numbers {
+        border-right: 0.5px solid #e6e6e6;
+        background-color: #444444;
+        color: white;
+    }
+}
+
+:host-context(.light-theme) {
+    .code-container {
+        border-right: 0.5px solid #181818;
+    }
+
+    .file {
+        color: black;
+    }
+
+    .control-area {
+        border: 0.5px solid #181818;
+        background-color: #e6e6e6;
+    }
+
+    .control-area > button {
+        color: black;
+    }
+
+    .editor-container {
+        border: 0.5px solid #181818;
+
+        textarea {
+            background-color: #f5f5f5;
+            color: black;
+        }
+    }
+
+    .line-numbers {
+        border-right: 0.5px solid #181818;
+        background-color: #cccccc;
+        color: black;
+    }
+}

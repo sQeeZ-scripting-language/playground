@@ -4,7 +4,6 @@
     align-items: center;
     height: 7.5svh;
     width: 100%;
-    border-bottom: 0.5px solid white;
 }
 
 img {
@@ -14,5 +13,25 @@ img {
 
 .control-area {
     margin-right: 1rem;
-    color: white;
+}
+
+:host-context(.dark-theme) {
+    .toolbar-container {
+        border-bottom: 0.5px solid #e6e6e6;
+    }
+
+    .control-area > button {
+        color: white;
+    }
+
+}
+
+:host-context(.light-theme) {
+    .toolbar-container {
+        border-bottom: 0.5px solid #181818;
+    }
+
+    .control-area > button {
+        color: black;
+    }
 }

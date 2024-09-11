@@ -13,5 +13,16 @@
 .core {
     display: flex;
     justify-content: flex-start;
-    background-color: #222222;
+}
+
+.dark-theme {
+    .core {
+        background-color: #222222;
+    }
+}
+
+.light-theme {
+    .core {
+        background-color: #f5f5f5;
+    }
 }

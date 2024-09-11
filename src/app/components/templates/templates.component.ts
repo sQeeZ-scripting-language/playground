@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, signal, ViewEncapsulation} from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import { DataService } from '../../services/data.service';
@@ -12,8 +12,7 @@ import { lastValueFrom } from 'rxjs';
   standalone: true,
   imports: [MatExpansionModule, MatButtonModule],
   templateUrl: './templates.component.html',
-  styleUrl: './templates.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './templates.component.scss'
 })
 export class TemplatesComponent {
 

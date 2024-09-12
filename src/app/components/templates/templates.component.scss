@@ -4,6 +4,31 @@
     overflow-y: scroll;
 }
 
+.templates-container.collapsed {
+    width: fit-content;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5svh;
+    width: calc(100% - 1em);
+    padding-left: 1em;
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
+    }
+}
+
+.collapsed .header {
+    width: 100%;
+    padding-left: 0;
+}
+
 .templates {
     width: 100%;
     display: flex;
@@ -21,11 +46,20 @@
     .templates-container {
         border-right: 0.5px solid #e6e6e6;
     }
+
+    .header {
+        border-bottom: 0.5px solid #e6e6e6;
+        color: white;
+    }
 }
 
 :host-context(.light-theme) {
     .templates-container {
         border-right: 0.5px solid #181818;
+    }
+
+    .header {
+        border-bottom: 0.5px solid #181818;
     }
 
     mat-accordion {

@@ -2,6 +2,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -13,7 +14,10 @@ import { MatIconModule } from '@angular/material/icon';
 export class ToolbarComponent implements OnInit {
   public currentTheme: string = 'dark';
 
-  constructor(@Inject(PLATFORM_ID) private platformId: any) { }
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: any,
+    private snackBar: SnackbarService
+  ) { }
 
   ngOnInit(): void {
     this.currentTheme = this.getSystemTheme();
@@ -23,6 +27,14 @@ export class ToolbarComponent implements OnInit {
   toggleTheme(): void {
     this.currentTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
     this.setTheme();
+  }
+
+  openDocumentation(): void {
+    this.snackBar.open('Documentation coming soon!');
+  }
+
+  openSettings(): void {
+    // TODO: Open settings dialog
   }
 
   private getSystemTheme(): string {

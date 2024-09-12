@@ -6,15 +6,18 @@ import { TemplateCategory } from '../../interfaces/template-category.interface';
 import { Template } from '../../interfaces/template.interface';
 import { SyncService } from '../../services/sync.service';
 import { lastValueFrom } from 'rxjs';
+import { MatIconModule } from '@angular/material/icon';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-templates',
   standalone: true,
-  imports: [MatExpansionModule, MatButtonModule],
+  imports: [MatExpansionModule, MatButtonModule, MatIconModule, NgClass],
   templateUrl: './templates.component.html',
   styleUrl: './templates.component.scss'
 })
 export class TemplatesComponent {
+  isCollapsed: boolean = false;
 
   constructor(
     private dataService: DataService,
@@ -30,5 +33,9 @@ export class TemplatesComponent {
 
   async showCode(template: Template) {
     this.syncService.setCode(await lastValueFrom(this.dataService.getTemplateCode(template.code)));
+  }
+
+  toggleCollapse() {
+    this.isCollapsed = !this.isCollapsed;
   }
 }

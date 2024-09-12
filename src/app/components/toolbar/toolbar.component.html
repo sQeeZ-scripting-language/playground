@@ -4,10 +4,10 @@
         <button mat-icon-button (click)="toggleTheme()">
             <mat-icon> {{ currentTheme === 'light' ? 'light_mode' : 'dark_mode' }} </mat-icon>
         </button>
-        <button mat-icon-button>
+        <button mat-icon-button (click)="openDocumentation()">
             <mat-icon>help</mat-icon>
         </button>
-        <button mat-icon-button>
+        <button mat-icon-button (click)="openSettings()">
             <mat-icon>settings</mat-icon>
         </button>
     </div>

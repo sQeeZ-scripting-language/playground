@@ -1,0 +1,27 @@
+.settings-container {
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	text-align: center;
+
+    button {
+        margin-right: 10px;
+    }
+}
+
+:host-context(.dark-theme) {
+    .settings-container {
+        background-color: #aaaaaa;
+    }
+
+}
+
+:host-context(.light-theme) {
+    .settings-container {
+        background-color: #ffffff
+    }
+}

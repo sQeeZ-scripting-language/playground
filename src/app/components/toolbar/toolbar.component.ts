@@ -2,7 +2,9 @@ import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialog } from '@angular/material/dialog';
 import { SnackbarService } from '../../services/snackbar.service';
+import { SettingsComponent } from '../settings/settings.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -16,7 +18,8 @@ export class ToolbarComponent implements OnInit {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
-    private snackBar: SnackbarService
+    private snackBar: SnackbarService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -34,7 +37,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   openSettings(): void {
-    // TODO: Open settings dialog
+		this.dialog.open(SettingsComponent);
   }
 
   private getSystemTheme(): string {

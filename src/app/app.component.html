@@ -1,1 +1,14 @@
-<router-outlet />
+<div class="app-container" 
+    (screenWidth)="screenWidth = $event"
+    (screenHeight)="screenHeight = $event" 
+    appScreen
+>
+    <app-toolbar [screenWidth]="screenWidth"></app-toolbar>
+    <div class="core">
+        @if (screenWidth >= 992) {
+            <app-templates [screenWidth]="screenWidth"></app-templates>
+        }
+        <app-code></app-code>
+        <app-console></app-console>
+    </div>
+</div>

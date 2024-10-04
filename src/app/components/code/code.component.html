@@ -1,0 +1,39 @@
+<div class="code-container" style="--font-size: {{ fontSize  + 'px' }} ">
+    <div class="header">
+        <div class="file">
+            <div class="header">
+                <mat-icon>code</mat-icon>
+                <p>main.sqz</p>
+            </div>
+        </div>
+        <div class="control-area">
+            <button mat-icon-button (click)="runCode()" matTooltip="Run Code">
+                <mat-icon>play_arrow</mat-icon>
+            </button>
+            <button mat-icon-button (click)="stopExecution()" matTooltip="Stop Execution">
+                <mat-icon>stop</mat-icon>
+            </button>
+            <button mat-icon-button (click)="copyCode()" matTooltip="Copy Code">
+                <mat-icon>content_copy</mat-icon>
+            </button>
+            <button mat-icon-button (click)="clearEditor()" matTooltip="Clear Editor">
+                <mat-icon>clear</mat-icon>
+            </button>            
+            <button mat-icon-button (click)="downloadCode()" matTooltip="Download File">
+                <mat-icon>file_download</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="editor-container">
+        <div class="line-numbers" [innerHTML]="lineNumbers"></div>
+        <textarea 
+            class="editor" 
+            [(ngModel)]="code"
+            (input)="updateLineNumbers($event)"
+            (keydown)="handleTab($event)" 
+            (keyup.enter)="syncScroll($event)" 
+            (scroll)="syncScroll($event)" 
+            spellcheck="false"
+        ></textarea>
+    </div>      
+</div>

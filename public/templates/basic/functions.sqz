@@ -1,0 +1,7 @@
+// Example of a basic function in sQeeZ
+
+fn greet(name) {
+  return "Hello " + name;
+}
+
+log(greet("John Doe"));

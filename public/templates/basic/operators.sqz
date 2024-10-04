@@ -1,0 +1,26 @@
+// Example of different operators in sQeeZ
+
+// Assignment operator
+var x = 10;
+
+// Arithmetic operators
+var sum = 5 + 3;
+var diff = 10 - 2;
+var product = 4 * 2;
+var quotient = 8 / 2;
+var remainder = 7 % 3;
+
+// Compound assignment operators
+x += 5;
+x -= 2;
+x *= 3;
+x /= 4;
+x %= 2;
+
+// Increment and Decrement
+var count = 0;
+count++;
+count--;
+
+// Potentiation
+var power = 2 ** 3;

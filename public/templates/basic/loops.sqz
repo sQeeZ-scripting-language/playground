@@ -1,0 +1,32 @@
+// Example of different loops in sQeeZ
+
+// 1. Simple for loop
+for (var i = 0; i < 5; i++) {
+  log("Simple loop iteration: " + i);
+}
+
+// 2. While loop
+var j = 0;
+while (j < 5) {
+  log("While loop iteration: " + j);
+  j++;
+}
+
+// 3. Do-while loop
+var k = 0;
+do {
+  log("Do-while loop iteration: " + k);
+  k++;
+} while (k < 5);
+
+// 4. For-of loop (for iterating over iterable objects like arrays)
+const myArray = [10, 20, 30, 40];
+for (const element of myArray) {
+  log("For-of loop, element: " + element);
+}
+
+// 5. For-in loop (for iterating over object properties)
+const myObject = { a: 1, b: 2, c: 3 };
+for (const key in myObject) {
+  log("For-in loop, key: " + key + ", value: " + myObject[key]);
+}

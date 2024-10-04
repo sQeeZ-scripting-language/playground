@@ -1,0 +1,29 @@
+// Function to sort an array in sQeeZ (Quick Sort)
+
+fn quick_sort(arr) {
+  
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  var pivot = arr[arr.length / 2 | 0];
+
+  var left = [], right = [], equal = [];
+
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] < pivot) {
+      left.push(arr[i]);
+    } else if (arr[i] > pivot) {
+      right.push(arr[i]);
+    } else {
+      equal.push(arr[i]);
+    }
+  }
+
+  return quick_sort(left).concat(equal).concat(quick_sort(right));
+}
+
+var arr = [38, 27, 43, 3, 9, 82, 10];
+
+log("Unsorted array:", arr);
+log("Sorted array:", quick_sort(arr));

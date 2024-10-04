@@ -68,11 +68,24 @@ export class CodeComponent implements OnInit, OnDestroy {
   }
 
   async copyCode() {
+    const textarea = document.createElement('textarea');
+    textarea.value = this.code;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+  
     try {
-      await navigator.clipboard.writeText(this.code);
-      this.snackbarService.open('Code copied to clipboard!');
+      const successful = document.execCommand('copy');
+      if (!successful) {
+        this.snackbarService.open('Failed to copy code to clipboard!');
+      }
     } catch (err) {
       this.snackbarService.open('Failed to copy code to clipboard!');
+    } finally {
+      document.body.removeChild(textarea);
+      this.snackbarService.open('Code copied to clipboard!');
     }
   }
 
@@ -81,7 +94,7 @@ export class CodeComponent implements OnInit, OnDestroy {
   }
 
   downloadCode() {
-    const blob = new Blob([this.code], { type: 'text/plain' });
+    const blob = new Blob([this.code]);
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;

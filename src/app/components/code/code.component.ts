@@ -72,22 +72,24 @@ export class CodeComponent implements OnInit, OnDestroy {
     textarea.value = this.code;
     textarea.style.position = 'fixed';
     textarea.style.opacity = '0';
+    textarea.style.zIndex = '-1';
     document.body.appendChild(textarea);
-    textarea.focus();
-    textarea.select();
-  
-    try {
-      const successful = document.execCommand('copy');
-      if (!successful) {
+    setTimeout(() => {
+      textarea.select();
+      try {
+        if (!document.execCommand('copy')) {
+          this.snackbarService.open('Failed to copy code to clipboard!');
+        } else {
+          this.snackbarService.open('Code copied to clipboard!');
+        }
+      } catch (err) {
         this.snackbarService.open('Failed to copy code to clipboard!');
+      } finally {
+        document.body.removeChild(textarea);
       }
-    } catch (err) {
-      this.snackbarService.open('Failed to copy code to clipboard!');
-    } finally {
-      document.body.removeChild(textarea);
-      this.snackbarService.open('Code copied to clipboard!');
-    }
+    }, 0);
   }
+  
 
   clearEditor() {
     this.syncService.setCode('');

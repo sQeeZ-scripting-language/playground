@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SyncService } from '../../services/sync.service';
 import { SnackbarService } from '../../services/snackbar.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-settings',
@@ -15,8 +16,12 @@ import { SnackbarService } from '../../services/snackbar.service';
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.scss'
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent implements OnInit, OnDestroy {
   settingsForm: FormGroup;
+  theme: string = 'dark';
+  fontSizeSubscription: Subscription = new Subscription();
+  tabSizeSubscription: Subscription = new Subscription();
+  themeSubscription: Subscription = new Subscription();
 
   constructor(
     private _dialogRef: MatDialogRef<SettingsComponent>, 
@@ -31,12 +36,15 @@ export class SettingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.syncService.getFontSize().subscribe(fontSize => {
-      this.settingsForm.patchValue({ fontSize });
-    });
-    this.syncService.getTabSize().subscribe(tabSize => {
-      this.settingsForm.patchValue({ tabSize });
-    });
+    this.fontSizeSubscription = this.syncService.getFontSize().subscribe(fontSize => this.settingsForm.patchValue({ fontSize }));
+    this.tabSizeSubscription = this.syncService.getTabSize().subscribe(tabSize => this.settingsForm.patchValue({ tabSize }));
+    this.themeSubscription = this.syncService.getTheme().subscribe(theme => this.theme = theme);
+  }
+
+  ngOnDestroy(): void {
+    this.fontSizeSubscription?.unsubscribe();
+    this.tabSizeSubscription?.unsubscribe();
+    this.themeSubscription?.unsubscribe();
   }
 
 	public closeDialog(res: boolean): void {

@@ -9,6 +9,7 @@ export class SyncService {
   private output = new BehaviorSubject('');
   private fontSize = new BehaviorSubject(16);
   private tabSize = new BehaviorSubject(2);
+  private theme = new BehaviorSubject('dark');
 
   constructor() { }
 
@@ -28,6 +29,10 @@ export class SyncService {
     this.tabSize.next(tabSize);
   }
 
+  public setTheme(theme: string) {
+    this.theme.next(theme);
+  }
+
   public getCode(): Observable<string> {
     return this.code.asObservable();
   }
@@ -42,5 +47,9 @@ export class SyncService {
 
   public getTabSize(): Observable<number> {
     return this.tabSize.asObservable();
+  }
+
+  public getTheme(): Observable<string> {
+    return this.theme.asObservable();
   }
 }

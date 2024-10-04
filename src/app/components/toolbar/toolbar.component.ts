@@ -7,6 +7,7 @@ import { SnackbarService } from '../../services/snackbar.service';
 import { SettingsComponent } from '../settings/settings.component';
 import { TemplatesComponent } from '../templates/templates.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { SyncService } from '../../services/sync.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -21,6 +22,7 @@ export class ToolbarComponent implements OnInit, AfterViewInit {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
+    private syncService: SyncService,
     private snackBar: SnackbarService,
     private dialog: MatDialog
   ) { }
@@ -38,6 +40,7 @@ export class ToolbarComponent implements OnInit, AfterViewInit {
 
   toggleTheme(): void {
     this.currentTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
+    this.syncService.setTheme(this.currentTheme);
     this.setTheme();
   }
 
@@ -51,8 +54,7 @@ export class ToolbarComponent implements OnInit, AfterViewInit {
 
   openMenu(): void {
     this.dialog.open(TemplatesComponent, {
-      width: '90%',
-      height: '90%',
+      width: '90%'
     });
   }
 

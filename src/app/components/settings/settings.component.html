@@ -7,11 +7,11 @@
     </div>
     <mat-dialog-content>
         <form [formGroup]="settingsForm" class="settings-form">
-            <mat-form-field>
+            <mat-form-field [appearance]="theme === 'dark' ? 'fill' : 'outline'">
                 <mat-label>Font Size</mat-label>
                 <input matInput type="number" formControlName="fontSize" min="8" max="72" />
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field [appearance]="theme === 'dark' ? 'fill' : 'outline'">
                 <mat-label>Tab Size</mat-label>
                 <input matInput type="number" formControlName="tabSize" min="1" max="8" />
             </mat-form-field>

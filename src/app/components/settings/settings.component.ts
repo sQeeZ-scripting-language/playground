@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class SettingsComponent {
 
-  constructor(private _dialogRef: MatDialogRef<SettingsComponent>,) { }
+  constructor(private _dialogRef: MatDialogRef<SettingsComponent>) { }
 
 	public closeDialog(res: boolean): void {
 		this._dialogRef.close(res);

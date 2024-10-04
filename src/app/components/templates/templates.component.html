@@ -1,15 +1,21 @@
-<div class="templates-container" [ngClass]="{ 'collapsed': isCollapsed }">
+<div class="templates-container" [ngClass]="{ 'collapsed': isCollapsed }" mat-dialog-container>
     <div class="header">
         @if (!isCollapsed) {
             <div>Templates</div>
         }
-        <button mat-icon-button (click)="toggleCollapse()">
-            @if (isCollapsed) {
-                <mat-icon>keyboard_arrow_left</mat-icon>
-            } @else {
-                <mat-icon>keyboard_arrow_right</mat-icon>
-            }
-        </button>
+        @if (screenWidth < 992) {
+            <button mat-icon-button (click)="closeDialog()">
+                <mat-icon>close</mat-icon>
+            </button>
+        } @else {
+            <button mat-icon-button (click)="toggleCollapse()">
+                @if (isCollapsed) {
+                    <mat-icon>keyboard_arrow_left</mat-icon>
+                } @else {
+                    <mat-icon>keyboard_arrow_right</mat-icon>
+                }
+            </button>
+        }
     </div>
     @if (!isCollapsed) {
         <mat-accordion>

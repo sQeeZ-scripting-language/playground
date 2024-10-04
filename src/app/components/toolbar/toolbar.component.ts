@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { SnackbarService } from '../../services/snackbar.service';
 import { SettingsComponent } from '../settings/settings.component';
+import { TemplatesComponent } from '../templates/templates.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -48,7 +49,10 @@ export class ToolbarComponent implements OnInit, AfterViewInit {
   }
 
   openMenu(): void {
-    this.snackBar.open('Menu coming soon!');
+    this.dialog.open(TemplatesComponent, {
+      width: '90%',
+      height: '90%',
+    });
   }
 
   private getSystemTheme(): string {

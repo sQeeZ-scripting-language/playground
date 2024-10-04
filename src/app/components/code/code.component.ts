@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { SyncService } from '../../services/sync.service';
 import { SnackbarService } from '../../services/snackbar.service';
 import { Subscription } from 'rxjs';
@@ -9,7 +10,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-code',
   standalone: true,
-  imports: [FormsModule, MatButtonModule, MatIconModule],
+  imports: [FormsModule, MatButtonModule, MatIconModule, MatTooltipModule],
   templateUrl: './code.component.html',
   styleUrl: './code.component.scss'
 })

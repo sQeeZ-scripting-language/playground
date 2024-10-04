@@ -64,6 +64,6 @@
 @media (min-width: 992px) {
     .console-container {
         height: calc(100vh - 7.5svh - 0.5px);
-        flex: 0 0 32vw; 
+        width: 32vw;
     }
 }

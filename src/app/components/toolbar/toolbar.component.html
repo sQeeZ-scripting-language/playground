@@ -1,17 +1,17 @@
 <div class="toolbar-container">
     <img src="logo.jpg">
     <div class="control-area">
-        <button mat-icon-button (click)="toggleTheme()">
+        <button mat-icon-button (click)="toggleTheme()" [matTooltip]="currentTheme === 'light' ? 'Dark Mode' : 'Light Mode'">
             <mat-icon> {{ currentTheme === 'light' ? 'light_mode' : 'dark_mode' }} </mat-icon>
         </button>
-        <button mat-icon-button (click)="openDocumentation()">
+        <button mat-icon-button (click)="openDocumentation()" matTooltip="Help">
             <mat-icon>help</mat-icon>
         </button>
-        <button mat-icon-button (click)="openSettings()">
+        <button mat-icon-button (click)="openSettings()" matTooltip="Settings">
             <mat-icon>settings</mat-icon>
         </button>
         @if (screenWidth < 992) {
-            <button mat-icon-button (click)="openMenu()">
+            <button mat-icon-button (click)="openMenu()" matTooltip="Templates">
                 <mat-icon>menu</mat-icon>
             </button>
         }

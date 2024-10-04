@@ -7,19 +7,19 @@
             </div>
         </div>
         <div class="control-area">
-            <button mat-icon-button (click)="runCode()">
+            <button mat-icon-button (click)="runCode()" matTooltip="Run Code">
                 <mat-icon>play_arrow</mat-icon>
             </button>
-            <button mat-icon-button (click)="stopExecution()">
+            <button mat-icon-button (click)="stopExecution()" matTooltip="Stop Execution">
                 <mat-icon>stop</mat-icon>
             </button>
-            <button mat-icon-button (click)="copyCode()">
+            <button mat-icon-button (click)="copyCode()" matTooltip="Copy Code">
                 <mat-icon>content_copy</mat-icon>
             </button>
-            <button mat-icon-button (click)="clearEditor()">
+            <button mat-icon-button (click)="clearEditor()" matTooltip="Clear Editor">
                 <mat-icon>clear</mat-icon>
-            </button>
-            <button mat-icon-button (click)="downloadCode()">
+            </button>            
+            <button mat-icon-button (click)="downloadCode()" matTooltip="Download File">
                 <mat-icon>file_download</mat-icon>
             </button>
         </div>

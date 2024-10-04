@@ -6,11 +6,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { SnackbarService } from '../../services/snackbar.service';
 import { SettingsComponent } from '../settings/settings.component';
 import { TemplatesComponent } from '../templates/templates.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-toolbar',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule],
+  imports: [MatButtonModule, MatIconModule, MatTooltipModule],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.scss'
 })

@@ -17,8 +17,10 @@ import { Subscription } from 'rxjs';
 export class CodeComponent implements OnInit, OnDestroy {
   lineNumbers: string = '1';
   code: string = '';
+  fontSize: number = 16;
   tabSize: number = 2;
   codeSubscription: Subscription = new Subscription();
+  fontSizeSubscription: Subscription = new Subscription();
   tabSizeSubscription: Subscription = new Subscription();
 
   constructor(
@@ -31,11 +33,13 @@ export class CodeComponent implements OnInit, OnDestroy {
       this.code = code;
       this.updateLineNumbers();
     });
+    this.fontSizeSubscription = this.syncService.getFontSize().subscribe(fontSize => this.fontSize = fontSize);
     this.tabSizeSubscription = this.syncService.getTabSize().subscribe(tabSize => this.tabSize = tabSize);
   }
 
   ngOnDestroy(): void {
     this.codeSubscription?.unsubscribe();
+    this.fontSizeSubscription?.unsubscribe();
     this.tabSizeSubscription?.unsubscribe();
   }
 

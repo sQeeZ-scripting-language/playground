@@ -13,6 +13,16 @@
     }
 }
 
+.settings-form {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-dialog-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
 :host-context(.dark-theme) {
     .settings-container {
         background-color: #aaaaaa;

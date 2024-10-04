@@ -7,7 +7,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class SyncService {
   private code = new BehaviorSubject('// This is a simple "Hello World" program in sQeeZ\nlog("Hello, World!");\n');
   private output = new BehaviorSubject('');
-  private tabSize = new BehaviorSubject(2);
+  private fontSize = new BehaviorSubject(16);
+  private tabSize = new BehaviorSubject(4);
 
   constructor() { }
 
@@ -17,6 +18,10 @@ export class SyncService {
 
   public setOutput(output: string) {
     this.output.next(output.replace(/\n/g, '<br>'));
+  }
+
+  public setFontSize(fontSize: number) {
+    this.fontSize.next(fontSize);
   }
 
   public setTabSize(tabSize: number) {
@@ -29,6 +34,10 @@ export class SyncService {
 
   public getOutput(): Observable<string> {
     return this.output.asObservable();
+  }
+
+  public getFontSize(): Observable<number> {
+    return this.fontSize.asObservable();
   }
 
   public getTabSize(): Observable<number> {

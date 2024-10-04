@@ -5,7 +5,28 @@
             <mat-icon>clear</mat-icon>
         </button>
     </div>
-	<mat-dialog-content class="text mat-typography">
-		
-	</mat-dialog-content>
+    <mat-dialog-content>
+        <form [formGroup]="settingsForm" class="settings-form">
+            <mat-form-field>
+                <mat-label>Font Size</mat-label>
+                <input matInput type="number" formControlName="fontSize" min="8" max="72" />
+            </mat-form-field>
+        
+            <mat-form-field>
+                <mat-label>Tab Size</mat-label>
+                <input matInput type="number" formControlName="tabSize" min="2" max="8" />
+            </mat-form-field>
+        </form>
+    </mat-dialog-content>
+      
+    <mat-dialog-actions>
+        <button mat-raised-button (click)="closeDialog(false)">
+            <mat-icon>clear</mat-icon>    
+            Cancel
+        </button>
+        <button mat-raised-button color="primary" (click)="onSave()">
+            <mat-icon>save</mat-icon>
+            Save
+        </button>
+    </mat-dialog-actions>
 </div>

@@ -3,8 +3,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: calc(100vh - 7.5svh - 0.5px);
-    width: 32vw;
+    height: 40vh;
+    width: 100vw;
 }
 
 .header {
@@ -59,4 +59,11 @@
         color: black;
     }
     
+}
+
+@media (min-width: 992px) {
+    .console-container {
+        height: calc(100vh - 7.5svh - 0.5px);
+        flex: 0 0 32vw; 
+    }
 }

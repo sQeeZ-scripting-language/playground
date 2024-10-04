@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, Component, Inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
@@ -13,7 +13,8 @@ import { SettingsComponent } from '../settings/settings.component';
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.scss'
 })
-export class ToolbarComponent implements OnInit {
+export class ToolbarComponent implements OnInit, AfterViewInit {
+  @Input() public screenWidth: number = 0;
   public currentTheme: string = 'dark';
 
   constructor(
@@ -27,6 +28,12 @@ export class ToolbarComponent implements OnInit {
     this.setTheme();
   }
 
+  ngAfterViewInit(): void {
+    try { 
+      this.screenWidth = window.innerWidth;
+    } catch (err) { }
+  }
+
   toggleTheme(): void {
     this.currentTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
     this.setTheme();
@@ -38,6 +45,10 @@ export class ToolbarComponent implements OnInit {
 
   openSettings(): void {
 		this.dialog.open(SettingsComponent);
+  }
+
+  openMenu(): void {
+    this.snackBar.open('Menu coming soon!');
   }
 
   private getSystemTheme(): string {

@@ -1,7 +1,13 @@
-<div class="app-container">
-    <app-toolbar></app-toolbar>
+<div class="app-container" 
+    (screenWidth)="screenWidth = $event"
+    (screenHeight)="screenHeight = $event" 
+    appScreen
+>
+    <app-toolbar [screenWidth]="screenWidth"></app-toolbar>
     <div class="core">
-        <app-templates></app-templates>
+        @if (screenWidth >= 992) {
+            <app-templates></app-templates>
+        }
         <app-code></app-code>
         <app-console></app-console>
     </div>

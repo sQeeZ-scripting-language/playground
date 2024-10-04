@@ -10,5 +10,10 @@
         <button mat-icon-button (click)="openSettings()">
             <mat-icon>settings</mat-icon>
         </button>
+        @if (screenWidth < 992) {
+            <button mat-icon-button (click)="openMenu()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        }
     </div>
 </div>

@@ -1,6 +1,6 @@
 .templates-container {
-    height: calc(100vh - 7.5svh - 0.5px);
-    width: calc(18vw - 1px);
+    height: 15vh;
+    width: 100vw;
     overflow-y: scroll;
 }
 
@@ -88,4 +88,11 @@
     }
     
     --mat-expansion-header-indicator-color: black;
+}
+
+@media (min-width: 992px) {
+    .templates-container {
+        height: calc(100vh - 7.5svh - 0.5px);
+        width: calc(18vw - 1px);
+    }
 }

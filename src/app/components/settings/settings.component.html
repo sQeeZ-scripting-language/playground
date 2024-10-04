@@ -11,10 +11,9 @@
                 <mat-label>Font Size</mat-label>
                 <input matInput type="number" formControlName="fontSize" min="8" max="72" />
             </mat-form-field>
-        
             <mat-form-field>
                 <mat-label>Tab Size</mat-label>
-                <input matInput type="number" formControlName="tabSize" min="2" max="8" />
+                <input matInput type="number" formControlName="tabSize" min="1" max="8" />
             </mat-form-field>
         </form>
     </mat-dialog-content>
@@ -24,7 +23,7 @@
             <mat-icon>clear</mat-icon>    
             Cancel
         </button>
-        <button mat-raised-button color="primary" (click)="onSave()">
+        <button mat-raised-button color="primary" (click)="onSave()" [disabled]="settingsForm.invalid">
             <mat-icon>save</mat-icon>
             Save
         </button>

@@ -6,7 +6,7 @@ import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SyncService } from '../../services/sync.service';
-import { close } from 'inspector';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-settings',
@@ -21,11 +21,12 @@ export class SettingsComponent implements OnInit {
   constructor(
     private _dialogRef: MatDialogRef<SettingsComponent>, 
     private fb: FormBuilder, 
-    private syncService: SyncService
+    private syncService: SyncService,
+    private snackbarService: SnackbarService
   ) {
     this.settingsForm = this.fb.group({
-      fontSize: [0, [Validators.min(8), Validators.max(72)]],
-      tabSize: [0, [Validators.min(1), Validators.max(8)]]
+      fontSize: [0, [Validators.required, Validators.min(8), Validators.max(72)]],
+      tabSize: [0, [Validators.required, Validators.min(1), Validators.max(8)]]
     });
   }
 
@@ -47,6 +48,7 @@ export class SettingsComponent implements OnInit {
       this.syncService.setFontSize(this.settingsForm.value.fontSize);
       this.syncService.setTabSize(this.settingsForm.value.tabSize);
     }
+    this.snackbarService.open('Settings saved successfully');
     this.closeDialog(true);
   }
 }

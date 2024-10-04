@@ -8,7 +8,7 @@ export class SyncService {
   private code = new BehaviorSubject('// This is a simple "Hello World" program in sQeeZ\nlog("Hello, World!");\n');
   private output = new BehaviorSubject('');
   private fontSize = new BehaviorSubject(16);
-  private tabSize = new BehaviorSubject(4);
+  private tabSize = new BehaviorSubject(2);
 
   constructor() { }
 

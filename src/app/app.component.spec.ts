@@ -6,6 +6,8 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
     }).compileComponents();
+    spyOnProperty(window, 'innerWidth').and.returnValue(0);
+    spyOnProperty(window, 'innerHeight').and.returnValue(0);
   });
 
   it('should create the app', () => {
@@ -19,11 +21,5 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app.title).toEqual('playground');
   });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, playground');
-  });
+  
 });

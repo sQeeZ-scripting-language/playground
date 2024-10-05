@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, Component, Inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, Inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
@@ -24,17 +24,20 @@ export class ToolbarComponent implements OnInit, AfterViewInit {
     @Inject(PLATFORM_ID) private platformId: any,
     private syncService: SyncService,
     private snackBar: SnackbarService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
     this.currentTheme = this.getSystemTheme();
     this.setTheme();
+    this.cdr.detectChanges();
   }
 
   ngAfterViewInit(): void {
     try { 
       this.screenWidth = window.innerWidth;
+      this.cdr.detectChanges();
     } catch (err) { }
   }
 

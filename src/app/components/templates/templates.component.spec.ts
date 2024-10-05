@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TemplatesComponent } from './templates.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DataService } from '../../services/data.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('TemplatesComponent', () => {
   let component: TemplatesComponent;
@@ -8,7 +11,8 @@ describe('TemplatesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TemplatesComponent]
+      imports: [TemplatesComponent, BrowserAnimationsModule, HttpClientModule],
+      providers: [DataService]
     })
     .compileComponents();
 

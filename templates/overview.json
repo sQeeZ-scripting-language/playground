@@ -1,0 +1,39 @@
+{
+    "categories": [{
+        "name": "Basic",
+        "templates": [{
+            "name": "Hello World!",
+            "code": "../../../templates/basic/hello-world.sqz"
+        }, {
+            "name": "Conditions",
+            "code": "../../../templates/basic/conditions.sqz"
+        }, {
+            "name": "Loops",
+            "code": "../../../templates/basic/loops.sqz"
+        }, {
+            "name": "Functions",
+            "code": "../../../templates/basic/functions.sqz"
+        }, {
+            "name": "Operators",
+            "code": "../../../templates/basic/operators.sqz"
+        }, {
+            "name": "Data Structures",
+            "code": "../../../templates/basic/data-structures.sqz"
+        }]
+    }, {
+        "name": "Algorithms",
+        "templates": [{
+            "name": "Sorting",
+            "code": "../../../templates/algorithms/sorting.sqz"
+        }, {
+            "name": "Fibonacci",
+            "code": "../../../templates/algorithms/fibonacci.sqz"
+        }]
+    }, {
+        "name": "Short Notation",
+        "templates": [{
+            "name": "Arrays",
+            "code": "../../../templates/short-notation/arrays.sqz"
+        }]
+    }]
+}

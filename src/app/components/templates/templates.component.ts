@@ -1,4 +1,4 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, Input, OnInit, Optional, signal, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, Optional, signal, ViewEncapsulation} from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import { DataService } from '../../services/data.service';
@@ -24,7 +24,8 @@ export class TemplatesComponent implements OnInit, AfterViewInit {
   constructor(
     private dataService: DataService,
     private syncService: SyncService,
-    @Optional() private dialogRef: MatDialogRef<TemplatesComponent>
+    @Optional() private dialogRef: MatDialogRef<TemplatesComponent>,
+    private cdr: ChangeDetectorRef
   ) { }
 
   readonly panelOpenState = signal(false);
@@ -32,11 +33,13 @@ export class TemplatesComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.categories = this.dataService.templates;
+    this.cdr.detectChanges();
   }
 
   ngAfterViewInit(): void {
     try {
       this.screenWidth = window.innerWidth;
+      this.cdr.detectChanges();
     } catch (err) { }
   }
 

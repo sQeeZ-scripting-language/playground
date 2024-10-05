@@ -10,7 +10,6 @@
     "test": "ng test",
     "test-headless": "ng test --browsers ChromeHeadless",
     "ci:test-headless": "ng test --browsers ChromeHeadlessNoSandbox --watch=false",
-    "serve:ssr:playground": "node dist/playground/server/server.mjs",
     "deploy": "ng deploy --cname=sQeeZ-scripting-language.github.io --repo=https://github.com/sQeeZ-scripting-language/playground.git"
   },
   "private": true,

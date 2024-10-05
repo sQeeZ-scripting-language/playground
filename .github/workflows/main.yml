@@ -39,9 +39,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: List publish directory
-        run: ls -la ./dist/playground
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

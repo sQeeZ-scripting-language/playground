@@ -8,6 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "dev": "ng serve --host 0.0.0.0 --disable-host-check --open",
     "test": "ng test",
+    "test-headless": "ng test --browsers ChromeHeadless",
+    "ci:test-headless": "ng test --browsers ChromeHeadlessNoSandbox --watch=false",
     "serve:ssr:playground": "node dist/playground/server/server.mjs"
   },
   "private": true,

@@ -26,6 +26,8 @@ body {
     --editor: #1f1f1f;
     --console: #181818;
     --line-numbers: #6d7681;
+    --disabled: #f0f0f0;
+    --highlight: rgba(255, 171, 242, 0.75);
 }
 
 .light-theme {
@@ -41,6 +43,8 @@ body {
     --editor: #ffffff;
     --console: #f8f8f8;
     --line-numbers: #6d7681;
+    --disabled: #f0f0f0;
+    --highlight: rgba(255, 171, 242, 0.75);
 }
 
 app-root {

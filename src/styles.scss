@@ -15,10 +15,32 @@ body {
 
 .dark-theme {
     background-color: #222222;
+    --background-color: #222222;
+    --font-color: white;
+    --toolbar: #424242;
+    --sidenav: #383838;
+    --content: #303030;
+    --banner: #222222;
+    --border: #e6e6e6;
+    --header: #2d2d2d;
+    --editor: #1f1f1f;
+    --console: #181818;
+    --line-numbers: #6d7681;
 }
 
 .light-theme {
     background-color: #f5f5f5;
+    --background-color: #f5f5f5;
+    --font-color: black;
+    --toolbar: #F5F5F5;
+    --sidenav: #E0E0E0;
+    --content: #FFFFFF;
+    --banner: #eeeeee;
+    --border: #181818;
+    --header: #e0e0e0;
+    --editor: #ffffff;
+    --console: #f8f8f8;
+    --line-numbers: #6d7681;
 }
 
 app-root {

@@ -12,6 +12,11 @@ log("Character value:" + charValue);
 var stringValue = "Hello, World!";
 log("String value:" + stringValue);
 
+var boolValue = false;
+
+const constant = "I am immutable!";
+log(constant);
+
 var array = [1, 2, 3, 4, 5];
 log("Array: " + array);
 

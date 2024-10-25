@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SyncService {
-  private code = new BehaviorSubject('// This is a simple "Hello World" program in sQeeZ\nlog("Hello, World!");\n');
+  private code = new BehaviorSubject('// This is a simple "Hello World" program in sQeeZ \n\n// Basic log message\nlog("Hello, World!");\n\n// Warning message\nwarn("This is a warning message!");\n\n// Error message\nerror("This is an error message!");\n\n// Colored log message\nlogc("Custom colored message!", #7F00FF);\n');
   private output = new BehaviorSubject('');
   private fontSize = new BehaviorSubject(16);
   private tabSize = new BehaviorSubject(2);

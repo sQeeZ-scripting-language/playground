@@ -1,2 +1,14 @@
 // Short notation of array functionalities in sQeeZ
-@1 2 3 4 5 |> map(*2) |> filter(>10)
+
+// Adds 3 to each: [8, 13, 18, 23, 28]
+// Filters > 15: [18, 23, 28]
+// Reduces by summing with initial value 0: 69 + 0 = 69
+@5,10,15,20,25 |> MAP(+3) |> FILTER(>15) |> REDUCE(+0);
+
+// Concatenates [1, 2] with [3, 4]: [1, 2, 3, 4]
+// Zips with ['a', 'b', 'c', 'd']: [(1, 'a'), (2, 'b'), (3, 'c'), (4, 'd')]
+@1,2 |> CONCAT(@3,4) |> ZIP(@'a','b','c','d');
+
+// Filters < 350: [100, 200, 300]
+// counts: 3
+COUNT((@100,200,300,400 |> FILTER(<350)));

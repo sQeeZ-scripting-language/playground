@@ -21,6 +21,15 @@
             "code": "./templates/basic/data-structures.sqz"
         }]
     }, {
+        "name": "Short Notation",
+        "templates": [{
+            "name": "Arrays",
+            "code": "./templates/short-notation/arrays.sqz"
+        }, {
+            "name": "Objects",
+            "code": "./templates/short-notation/objects.sqz"
+        }]
+    }, {
         "name": "Algorithms",
         "templates": [{
             "name": "Sorting",
@@ -28,12 +37,6 @@
         }, {
             "name": "Fibonacci",
             "code": "./templates/algorithms/fibonacci.sqz"
-        }]
-    }, {
-        "name": "Short Notation",
-        "templates": [{
-            "name": "Arrays",
-            "code": "./templates/short-notation/arrays.sqz"
         }]
     }]
 }

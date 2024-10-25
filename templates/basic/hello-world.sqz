@@ -1,2 +1,13 @@
 // This is a simple "Hello World" program in sQeeZ
+
+// Basic log message
 log("Hello, World!");
+
+// Warning message
+warn("This is a warning message!");
+
+// Error message
+error("This is an error message!");
+
+// Colored log message
+logc("Custom colored message!", #7F00FF);

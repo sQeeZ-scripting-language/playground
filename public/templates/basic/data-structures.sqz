@@ -1,19 +1,24 @@
 // The basic data structures in sQeeZ
 
 var intValue = 42;
-log("Integer value:", intValue);
+log("Integer value:" + intValue);
 
 var doubleValue = 3.14159;
-log("Double value:", doubleValue);
+log("Double value:" + doubleValue);
 
 var charValue = 'A';
-log("Character value:", charValue);
+log("Character value:" + charValue);
 
 var stringValue = "Hello, World!";
-log("String value:", stringValue);
+log("String value:" + stringValue);
+
+var boolValue = false;
+
+const constant = "I am immutable!";
+log(constant);
 
 var array = [1, 2, 3, 4, 5];
-log("Array: ", array);
+log("Array: " + array);
 
 var object = {
   name: "John Doe",
@@ -21,4 +26,4 @@ var object = {
   isEmployed: true
 };
 
-log("Object: ", person);
+log("Object: " + person);

@@ -1,14 +1,57 @@
-<div class="app-container" 
-    (screenWidth)="screenWidth = $event"
-    (screenHeight)="screenHeight = $event" 
-    appScreen
->
-    <app-toolbar [screenWidth]="screenWidth"></app-toolbar>
-    <div class="core">
-        @if (screenWidth >= 992) {
-            <app-templates [screenWidth]="screenWidth"></app-templates>
-        }
-        <app-code></app-code>
-        <app-console></app-console>
-    </div>
+<div class="app-container" [class.is-mobile]="mobileQuery.matches">
+    <mat-toolbar class="toolbar">
+        <div class="menu">
+            <button mat-icon-button (click)="snav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <img src="logo.jpg" alt="sQeeZ-Scripting-Language" class="logo">
+        </div>
+        <div class="actions">
+            <button mat-icon-button (click)="toggleTheme()" [matTooltip]="currentTheme === 'light' ? 'Dark Mode' : 'Light Mode'">
+                <mat-icon> {{ currentTheme === 'light' ? 'light_mode' : 'dark_mode' }} </mat-icon>
+            </button>
+            <button mat-icon-button (click)="openDocumentation()" matTooltip="Help">
+                <mat-icon>help</mat-icon>
+            </button>
+            <button mat-icon-button (click)="openSettings()" matTooltip="Settings">
+                <mat-icon>settings</mat-icon>
+            </button>
+        </div>
+    </mat-toolbar>
+    <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" opened="false">
+            <h2 class="heading">Templates</h2>
+            <mat-nav-list class="table-of-contents">
+                @for (section of categories; track section) {
+                    <ng-container *ngTemplateOutlet="renderContent; context: { $implicit: section }"></ng-container>
+                }
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content class="sidenav-content">
+            <div class="core">
+                <app-code></app-code>
+                <app-console></app-console>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 </div>
+
+<ng-template #renderContent let-section>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <button mat-stroked-button color="primary" class="content-item">
+                    {{ section.name }}
+                </button>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        @for(subSection of section.templates; track subSection) {
+            <mat-list-item>
+                <button mat-stroked-button color="primary" (click)="showCode(subSection); snav.close()" class="content-item">
+                    {{ subSection.name }}
+                </button>
+            </mat-list-item>
+        }
+    </mat-expansion-panel>
+</ng-template>

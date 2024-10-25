@@ -73,6 +73,10 @@ export class CodeComponent implements OnInit, OnDestroy {
   }
 
   async copyCode() {
+    if (this.code === '') {
+      this.snackbarService.open('No code to copy!');
+      return;
+    }
     const textarea = document.createElement('textarea');
     textarea.value = this.code;
     textarea.style.position = 'fixed';

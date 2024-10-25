@@ -1,0 +1,8 @@
+// Short notation of object functionalities in sQeeZ
+
+// {
+//     a: 1,
+//     b: false,
+//     c: "last value"
+// }
+@a:1,b:false,c:"last value";

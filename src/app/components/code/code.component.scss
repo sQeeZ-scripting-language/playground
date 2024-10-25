@@ -5,6 +5,7 @@
     align-items: center;
     height: 60vh;
     width: 100vw;
+    border-right: 0.5px solid var(--border);
 }
 
 .header {
@@ -21,12 +22,14 @@
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
+    color: var(--font-color);
 }
 
 .header {
     display: flex;
     align-items: center;
     gap: 0.25rem;
+    background-color: var(--code);
 }
 
 p {
@@ -39,7 +42,13 @@ p {
     align-items: center;
     flex-grow: 1;
     height: 100%;
-    border-right: 0;
+    border: 0.5px solid var(--border);
+    border-right: 0 !important;
+    background-color: var(--header);
+}
+
+.control-area > button {
+    color: var(--font-color);
 }
 
 .editor-container {
@@ -50,16 +59,20 @@ p {
     width: 100%;
     line-height: 1.5;
     font-family: 'Courier New', monospace;
+    border: 0.5px solid var(--border);
   
     .line-numbers {
-        width: 50px;
+        min-width: 30px;
         overflow: hidden;
         white-space: pre;
         user-select: none;
         line-height: inherit;
-        text-align: right;
-        font-size: var(--font-size);
+        text-align: center;
         padding: 10px;
+        font-size: var(--font-size);
+        border-right: 0.5px solid var(--border);
+        color: var(--line-numbers);
+        background-color: var(--code);
     }
   
     .editor {
@@ -78,76 +91,22 @@ p {
         margin: 0;
         padding: 10px 10px;
     }
-}
- 
 
-:host-context(.dark-theme) {
-    .code-container {
-        border-right: 0.5px solid #e6e6e6;
-    }
-
-    .file {
-        color: white;
-    }
-
-    .control-area {
-        border: 0.5px solid #e6e6e6;
-        background-color: #181818;
-    }
-
-    .editor-container {
-        border: 0.5px solid #e6e6e6;
-
-        textarea {
-            background-color: #222222;
-            color: white;
-        }
-    }
-
-    .line-numbers {
-        border-right: 0.5px solid #e6e6e6;
-        background-color: #444444;
-        color: white;
+    textarea {
+        background-color: var(--code);
+        color: var(--font-color);
     }
 }
 
 :host-context(.light-theme) {
-    .code-container {
-        border-right: 0.5px solid #181818;
-    }
-
-    .file {
-        color: black;
-    }
-
-    .control-area {
-        border: 0.5px solid #181818;
-        background-color: #e6e6e6;
-    }
-
-    .control-area > button {
-        color: black;
-    }
-
-    .editor-container {
-        border: 0.5px solid #181818;
-
-        textarea {
-            background-color: #f5f5f5;
-            color: black;
-        }
-    }
-
-    .line-numbers {
-        border-right: 0.5px solid #181818;
-        background-color: #cccccc;
-        color: black;
+    .control-area > button:hover {
+        background-color: var(--highlight) !important;
     }
 }
 
 @media (min-width: 992px) {
     .code-container {
         height: calc(100vh - 7.5svh - 0.5px);
-        width: 100%;
+        width: calc(65vw - 1px);
     }
 }

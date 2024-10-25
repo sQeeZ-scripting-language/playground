@@ -1,13 +1,112 @@
-%full-size {
-    width: 100%;
-    height: 100%;
-}
-  
 .app-container {
     display: flex;
     flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.is-mobile .toolbar {
+    position: fixed;
+    z-index: 2;
+}
+  
+.sidenav-container {
+    flex: 1;
+}
+  
+.is-mobile .sidenav-container {
+    flex: 1 0 auto;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    height: 4rem;
+    background-color: var(--toolbar);
+    color: var(--font-color);
+    border-bottom: 0.5px solid var(--border);
+}
+
+.menu,
+.actions {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 0.5rem;
+
+    .logo {
+        height: 75%;
+        width: auto;
+        border-radius: 5px;
+    }
+}
+
+.language-trigger .fi {
+    width: 24px;
+    transform: translateY(-4px);
+}
+
+.language-select .fi {
+    width: 24px;
+    transform: translateY(-2px);
+}
+.heading {
+    text-align: center;
+    text-decoration: underline;
+}
+
+mat-sidenav {
+    background-color: var(--sidenav);
+    color: var(--font-color);
+    border-radius: 0;
+}
+
+.sidenav-content {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: var(--content);
+}
+
+router-outlet {
+    display: flex;
+    flex-direction: column;
     justify-content: flex-start;
-    @extend %full-size;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    height: 3rem;
+    width: 100%;
+    bottom: 0;
+
+    button {
+        height: 100%;
+        width: 50%;
+        border-radius: 0;
+    }
+}
+
+mat-expansion-panel {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.content-item {
+    width: 100%;
+}
+
+.table-of-contents {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .core {
@@ -16,19 +115,19 @@
     justify-content: flex-start;
 }
 
-app-code {
-    flex: 1;
-}
+:host-context(.light-theme) {
+    --mat-expansion-header-indicator-color: var(--font-color);
 
-.dark-theme {
-    .core {
-        background-color: #222222;
+    button {
+        color: var(--font-color);
     }
-}
 
-.light-theme {
-    .core {
-        background-color: #f5f5f5;
+    button:hover {
+        background-color: rgba(255, 171, 242, 0.75) !important;
+    }
+
+    .controls button {
+        background-color: var(--toolbar);
     }
 }
 

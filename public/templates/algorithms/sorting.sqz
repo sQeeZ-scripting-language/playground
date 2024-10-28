@@ -6,7 +6,7 @@ fn quick_sort(arr) {
     return arr;
   }
 
-  var pivot = arr[arr.length / 2 | 0];
+  var pivot = arr[arr.length / 2];
 
   var left = [], right = [], equal = [];
 

@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { SyncService } from '../../services/sync.service';
 import { Subscription } from 'rxjs';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-console',
@@ -13,13 +14,13 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   styleUrl: './console.component.scss'
 })
 export class ConsoleComponent implements OnInit, OnDestroy {
-  output: string = '';
+  output: SafeHtml = '';
   outputSubscription: Subscription = new Subscription();
 
-  constructor(private syncService: SyncService) { }
+  constructor(private syncService: SyncService, private sanitizer: DomSanitizer) { }
   
   ngOnInit(): void {
-    this.outputSubscription = this.syncService.getOutput().subscribe(output => this.output = output);
+    this.outputSubscription = this.syncService.getOutput().subscribe(output => this.output = this.sanitizer.bypassSecurityTrustHtml(output));
   }
 
   ngOnDestroy(): void {

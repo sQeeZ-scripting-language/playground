@@ -6,6 +6,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { SyncService } from '../../services/sync.service';
 import { SnackbarService } from '../../services/snackbar.service';
 import { Subscription } from 'rxjs';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-code',
@@ -25,7 +26,8 @@ export class CodeComponent implements OnInit, OnDestroy {
 
   constructor(
     private syncService: SyncService,
-    private snackbarService: SnackbarService
+    private snackbarService: SnackbarService,
+    private api: ApiService
   ) { }
 
   ngOnInit(): void {
@@ -65,7 +67,29 @@ export class CodeComponent implements OnInit, OnDestroy {
   }
 
   runCode() {
-    this.snackbarService.open('Execution of the code is not yet implemented!');
+    this.api.interpretCode(this.code).then((response: any) => {
+      let output = '';
+      response.result.forEach((line: any) => {
+        switch (line.type) {
+          case 'LOG':
+            output += '<span>' + line.value + '</span><br>';
+            break;
+          case 'ERROR':
+            output += '<span style="color: red">' + line.value + '</span><br>';
+            break;
+          case 'WARN':
+            output += '<span style="color: yellow">' + line.value + '</span><br>';
+            break;
+          case 'COLORED':
+            output += '<span style="color: ' + line.color + '">' + line.value + '</span><br>';
+            break;
+        }
+      });
+      console.log(output);
+      this.syncService.setOutput(output);
+    }).catch((error: any) => {
+      this.snackbarService.open('Error: ' + error.message);
+    });
   }
 
   stopExecution() {

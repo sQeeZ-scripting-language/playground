@@ -19,6 +19,7 @@ import { lastValueFrom } from 'rxjs';
 import { Template } from './interfaces/template.interface';
 import { CodeComponent } from './components/code/code.component';
 import { ConsoleComponent } from './components/console/console.component';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -41,6 +42,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private syncService: SyncService,
     private snackBar: SnackbarService,
     private dialog: MatDialog,
+    private api: ApiService
   ) {
     const changeDetectorRef = inject(ChangeDetectorRef);
     const media = inject(MediaMatcher);
@@ -51,6 +53,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.api.activateWebservice();
     this.currentTheme = this.getSystemTheme();
     this.setTheme();
     this.categories = this.dataService.templates;

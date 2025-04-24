@@ -85,7 +85,6 @@ export class CodeComponent implements OnInit, OnDestroy {
             break;
         }
       });
-      console.log(output);
       this.syncService.setOutput(output);
     }).catch((error: any) => {
       this.snackbarService.open('Error: ' + error.message);

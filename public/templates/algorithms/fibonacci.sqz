@@ -1,23 +1,14 @@
 // Function to generate Fibonacci sequence up to n numbers in sQeeZ
 
-fn iterative_fib(n) {
-  const result = [];
-  var a = 0, b = 1;
+fn fib(n) {
+  var a = 1, b = 1;
 
-  while (result.length < n) {
-    result.push(a);
+  for (var i = 0; i < n; i++) {
+    log(a);
     var tmp = a + b;
     a = b;
     b = tmp;
   }
-
-  return result;
 }
 
-log(iterative_fib(10)); 
-
-fn recursive_fib(n) {
-  return n <= 1 ? n : recursive_fib(n - 1) + recursive_fib(n - 2);
-}
-
-log(recursive_fibonacci(10));
+fib(10); 

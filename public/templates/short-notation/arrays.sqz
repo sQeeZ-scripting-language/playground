@@ -1,14 +1,74 @@
 // Short notation of array functionalities in sQeeZ
 
-// Adds 3 to each: [8, 13, 18, 23, 28]
-// Filters > 15: [18, 23, 28]
-// Reduces by summing with initial value 0: 69 + 0 = 69
-@5,10,15,20,25 |> MAP(+3) |> FILTER(>15) |> REDUCE(+0);
+var array = @1,"two", false,@"another","array";;
+log("Array", array);
 
-// Concatenates [1, 2] with [3, 4]: [1, 2, 3, 4]
-// Zips with ['a', 'b', 'c', 'd']: [(1, 'a'), (2, 'b'), (3, 'c'), (4, 'd')]
-ZIP(CONCAT((@1,2), @3,4), @'a','b','c','d');
+// Length
+var numbers = @1,2,3,4,5;
+var length = numbers |> LENGTH();
+log("Length", length);
 
-// Filters < 350: [100, 200, 300]
-// counts: 3
-COUNT((@100,200,300,400), FILTER(<350));
+// Concat
+var nums = @6,7,8;
+numbers |> CONCAT(nums);
+log("Combined", numbers);
+
+// Includes
+var includes = numbers |> INCLUDES(7);
+log("Includes a 7", includes);
+
+// Index Of
+numbers = @1,2,3,4,5,5,6,7;
+var index_of = numbers |> INDEX_OF(5);
+log("Index of the 5", index_of);
+
+// Last Index Of
+var last_index_of = numbers |> LAST_INDEX_OF(5);
+log("Last index of the 5", last_index_of);
+
+// Find
+var element = numbers |> FIND(>4);
+log("Element found", element);
+
+// Find Index
+var index = numbers |> FIND_INDEX(>4);
+log("Index found", index);
+
+// Find Last
+var last_element = numbers |> FIND_LAST(>4);
+log("Last element found", last_element);
+
+// Find Last Index
+var last_index = numbers |> FIND_LAST_INDEX(>4);
+log("Last index found", last_index);
+
+// Filter
+var filtered = numbers |> FILTER(>4);
+log("Filtered array", filtered);
+
+// Map
+var mapped = numbers |> MAP(+3);
+log("Mapped array", mapped);
+
+// Reduce
+var callback = (acc, cur) => {acc + cur};
+var reduced = numbers |> REDUCE(callback);
+log("Reduced array", reduced);
+
+// Flat
+var nested = @1,2,@3,4,@5,6;;;
+log("Nested array", nested);
+var flattened = nested |> FLAT();
+var fully_flattened = nested |> FLAT(2);
+log("Flat array", flattened);
+log("Fully flat array", fully_flattened);
+
+// Flat Map
+var replace = (num) => {num == 2 ? [2, 2] : 1};
+var flatMapped = numbers |> FLAT_MAP(replace);
+log("Flattened and Mapped", flatMapped);
+
+// For Each
+log("Log each number:")
+var logger = (num) => {log(num)};
+numbers |> FOR_EACH(logger);

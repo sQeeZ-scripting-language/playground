@@ -18,7 +18,7 @@ const constant = "I am immutable!";
 log(constant);
 
 var array = [1, 2, 3, 4, 5];
-log("Array: " + array);
+log("Array", array);
 
 var object = {
   name: "John Doe",
@@ -26,4 +26,4 @@ var object = {
   isEmployed: true
 };
 
-log("Object: " + person);
+log("Object", object);

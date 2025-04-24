@@ -9,18 +9,32 @@ var diff = 10 - 2;
 var product = 4 * 2;
 var quotient = 8 / 2;
 var remainder = 7 % 3;
+log("Sum (5 + 3): " + sum);
+log("Difference (10 - 2): " + diff);
+log("Product (4 * 2): " + product);
+log("Quotient (8 / 2): " + quotient);
+log("Remainder (7 % 3): " + remainder);
 
 // Compound assignment operators
+log("Initial value of x: " + x);
 x += 5;
+log("After x += 5: " + x);
 x -= 2;
+log("After x -= 2: " + x);
 x *= 3;
+log("After x *= 3: " + x);
 x /= 4;
+log("After x /= 4: " + x);
 x %= 2;
+log("After x %= 2: " + x);
 
 // Increment and Decrement
 var count = 0;
 count++;
+log("After count++: " + count);
 count--;
+log("After count--: " + count);
 
 // Potentiation
 var power = 2 ** 3;
+log("2 raised to the power of 3 (2 ** 3): " + power);

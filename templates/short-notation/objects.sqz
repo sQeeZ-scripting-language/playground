@@ -1,8 +1,25 @@
 // Short notation of object functionalities in sQeeZ
 
-// {
-//     a: 1,
-//     b: false,
-//     c: "last value"
-// }
-@a:1,b:false,c:"last value";
+var object = @a:1,b:false,c:"last value";
+log("Object", object);
+
+// Has Key
+var key = "a";
+var has_key = object |> HAS_KEY(key);
+log("Object has key a", has_key);
+
+// Keys
+var keys = object |> KEYS();
+log("Keys", keys);
+
+// Values
+var values = object |> VALUES();
+log("Values", values);
+
+// Entries
+var entries = object |> ENTRIES();
+log("Entries", entries);
+
+// Get
+var element = object |> GET(key);
+log("ELement found", element);

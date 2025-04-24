@@ -32,8 +32,8 @@
     }, {
         "name": "Algorithms",
         "templates": [{
-            "name": "Sorting",
-            "code": "./templates/algorithms/sorting.sqz"
+            "name": "Prime Numbers",
+            "code": "./templates/algorithms/prime.sqz"
         }, {
             "name": "Fibonacci",
             "code": "./templates/algorithms/fibonacci.sqz"
